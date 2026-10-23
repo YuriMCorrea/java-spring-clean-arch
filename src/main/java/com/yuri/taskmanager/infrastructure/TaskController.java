@@ -5,6 +5,7 @@ import com.yuri.taskmanager.domain.TaskId;
 import com.yuri.taskmanager.infrastructure.http.request.CreateTaskRequest;
 import com.yuri.taskmanager.infrastructure.http.request.UpdateTaskRequest;
 import com.yuri.taskmanager.infrastructure.http.response.TaskResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -43,7 +44,7 @@ public class TaskController {
     }
 
     @PostMapping
-    ResponseEntity<TaskResponse> create(@RequestBody CreateTaskRequest request){
+    ResponseEntity<TaskResponse> create(@RequestBody @Valid CreateTaskRequest request){
         var response = TaskResponse.from(createTaskUsecase.execute(request.toInput()));
         return ResponseEntity.created(
                 ServletUriComponentsBuilder
