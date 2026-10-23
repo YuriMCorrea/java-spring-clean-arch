@@ -5,7 +5,9 @@ import com.yuri.taskmanager.application.output.TaskOutput;
 import com.yuri.taskmanager.domain.TaskId;
 import com.yuri.taskmanager.domain.TaskNotFoundException;
 import com.yuri.taskmanager.domain.TaskRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UpdateTaskUseCase {
 private final TaskRepository repository;
 

@@ -12,4 +12,9 @@ public record TaskId(UUID id) {
     public TaskId(){
         this(UUID.randomUUID());
     }
+
+    @Override
+    public String toString() {
+        return id.toString();
+    }
 }
